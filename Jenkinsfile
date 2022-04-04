@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Sonar Analysis') {
             steps {
-                withSonarQubeenv('ZensarCodeAnalysis'){
+                withSonarQubeEnv('ZensarCodeAnalysis'){
                 bat 'mvn sonar:sonar'
                 }
             }
