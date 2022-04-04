@@ -17,5 +17,12 @@ pipeline {
                 jacoco()
             }
         }
+        stage('Sonar Analysis') {
+            steps {
+                withSonarQubeenv('ZensarCodeAnalysis'){
+                bat 'mvn sonar:sonar
+                }
+            }
+        }
     }
 }
