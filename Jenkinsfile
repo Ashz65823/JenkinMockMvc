@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Package') {
             steps {
-                bat 'mvn clean package'
+                bat 'mvn clean package' //for windows
+                //sh 'mvn clean package for linux
             }
         }
         stage('JaCoCo Report') {
@@ -21,6 +22,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('ZensarCodeAnalysis'){
                 bat 'mvn sonar:sonar'
+                    
                 }
             }
         }
