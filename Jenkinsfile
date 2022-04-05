@@ -26,12 +26,13 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Building Doker image'
+                bat 'docker build -t ash4697/test .'
             }
         }
         stage('Push Doker Image to Doker Hub') {
             steps {
-                echo 'Pushing Doker image'
+                bat 'docker login -u username -p password'
+                bat 'docker push ash4697/test'
             }
         }
     }
